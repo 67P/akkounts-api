@@ -1,0 +1,44 @@
+{
+  "name": "akkounts-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/app/index.js",
+  "scripts": {
+    "dev": "tsc --watch & nodemon dist/app",
+    "test": "rm -rf dist/spec/ && tsc && MONGO_DATABASE=custody_test BWS_DATABASE=bws_test mocha -s 300 --recursive dist/spec/",
+    "lint": "eslint src --ext ts",
+    "start": "tsc && ./scripts/start.sh",
+    "stop": "./scripts/stop.sh",
+    "deploy:5apps": "git subtree push --prefix public/ 5apps master",
+    "webhooks:server": "node scripts/webhook-demo.js",
+    "webhooks:ngrok": "ngrok http -subdomain=webhook-test -region=eu 8081"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "4.16.3",
+    "nodemon": "^1.18.7"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.5",
+    "@types/mocha": "2.2.41",
+    "@types/node": "10.12.10",
+    "chai": "^4.2.0",
+    "colors": "^1.3.2",
+    "eslint": "4.0.0",
+    "eslint-config-airbnb-base": "11.2.0",
+    "eslint-plugin-import": "2.3.0",
+    "eslint-plugin-promise": "3.5.0",
+    "factory-girl": "^5.0.3",
+    "mocha": "3.4.2",
+    "sinon": "^7.1.1",
+    "supertest": "github:5apps/supertest#add-agent-default-support",
+    "tsc": "1.20150623.0",
+    "typescript": "2.3.3",
+    "typescript-eslint-parser": "3.0.0"
+  }
+}

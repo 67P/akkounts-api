@@ -1,0 +1,13 @@
+.env
+node_modules
+dist
+npm-debug.log
+pids
+logs
+
+chef/.vagrant
+chef/bin/*
+chef/.bundle/*
+chef/vendor/
+chef/.chef/encrypted_data_bag_secret
+chef/nodes/vagrant-node.json
