@@ -5,7 +5,7 @@
   "main": "dist/app/index.js",
   "scripts": {
     "dev": "tsc --watch & nodemon dist/app",
-    "test": "rm -rf dist/spec/ && tsc && MONGO_DATABASE=custody_test BWS_DATABASE=bws_test mocha -s 300 --recursive dist/spec/",
+    "test": "rm -rf dist/spec/ && tsc && mocha -s 300 --recursive dist/spec/",
     "lint": "eslint src --ext ts",
     "start": "tsc && ./scripts/start.sh",
     "stop": "./scripts/stop.sh",
