@@ -18,6 +18,7 @@
   "license": "AGPL",
   "dependencies": {
     "axios": "^0.18.0",
+    "btcpay": "github:btcpayserver/node-btcpay",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "4.16.3",
