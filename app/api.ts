@@ -1,7 +1,8 @@
 import * as express from 'express'
 import * as cors from 'cors'
-import IndexRoute from "./routes/index";
-import MastodonUsernameLookupRoute from "./routes/accounts/mastodon/username_lookup";
+import IndexRoute from "./routes/index"
+import MastodonUsernameLookupRoute from "./routes/accounts/mastodon/username_lookup"
+import MastodonRegistrationRoute from "./routes/accounts/mastodon/registration"
 
 require('dotenv').config()
 
@@ -26,6 +27,7 @@ class API {
     IndexRoute.create(router)
 
     MastodonUsernameLookupRoute.create(router)
+    MastodonRegistrationRoute.create(router)
 
     this.express.use('/', router)
   }
