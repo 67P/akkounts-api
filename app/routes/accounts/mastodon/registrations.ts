@@ -2,12 +2,12 @@ import { Request, Response, Router } from 'express'
 import { BaseRoute } from '../../base'
 import { inspect } from 'util'
 
-class MastodonRegistrationRoute extends BaseRoute {
+class MastodonRegistrationsRoute extends BaseRoute {
   constructor() { super() }
 
   public static create(router: Router) {
     router.post('/accounts/mastodon/registration', (req, res) => {
-      new MastodonRegistrationRoute().signup(req, res)
+      new MastodonRegistrationsRoute().signup(req, res)
     })
   }
 
@@ -40,4 +40,4 @@ class MastodonRegistrationRoute extends BaseRoute {
   }
 }
 
-export default MastodonRegistrationRoute
+export default MastodonRegistrationsRoute

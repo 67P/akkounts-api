@@ -2,7 +2,9 @@ import * as express from 'express'
 import * as cors from 'cors'
 import IndexRoute from "./routes/index"
 import MastodonUsernameLookupRoute from "./routes/accounts/mastodon/username_lookup"
-import MastodonRegistrationRoute from "./routes/accounts/mastodon/registration"
+import MastodonInvoicesRoute from "./routes/accounts/mastodon/invoices"
+import MastodonRegistrationsRoute from "./routes/accounts/mastodon/registrations"
+import MastodonBtcPayHookRoute from "./routes/accounts/mastodon/btcpay_hook"
 
 require('dotenv').config()
 
@@ -27,7 +29,9 @@ class API {
     IndexRoute.create(router)
 
     MastodonUsernameLookupRoute.create(router)
-    MastodonRegistrationRoute.create(router)
+    MastodonInvoicesRoute.create(router)
+    MastodonRegistrationsRoute.create(router)
+    MastodonBtcPayHookRoute.create(router)
 
     this.express.use('/', router)
   }
