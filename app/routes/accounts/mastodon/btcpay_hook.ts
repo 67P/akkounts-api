@@ -30,7 +30,7 @@ class MastodonBtcPayHookRoute extends BaseRoute {
   }
 
   private createMessage (inviteCode: String) {
-    const inviteUrl = `${process.env.MASTODON_HOST}/invites/${inviteCode}`
+    const inviteUrl = `${process.env.MASTODON_HOST}/invite/${inviteCode}`
     const message = "Here's your invite link for creating an account on kosmos.social:"
                   + "\n\n" + inviteUrl + "\n\n"
                   + "Thanks a lot for supporting community service providers!"

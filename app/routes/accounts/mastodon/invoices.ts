@@ -9,6 +9,9 @@ class MastodonInvoicesRoute extends BaseRoute {
     router.post('/accounts/mastodon/invoices', (req, res) => {
       new MastodonInvoicesRoute().create(req, res)
     })
+    router.get('/accounts/mastodon/invoices/:invoice_id', (req, res) => {
+      new MastodonInvoicesRoute().show(req, res)
+    })
   }
 
   public async create(req: Request, res: Response) {
@@ -27,6 +30,18 @@ class MastodonInvoicesRoute extends BaseRoute {
       notificationURL: hookUrl
     })
       .then(invoice => res.status(201).json({ invoice: { id: invoice.id } }))
+      .catch(err => this.handleError(res, err))
+  }
+
+  public async show(req: Request, res: Response) {
+    const invoiceId = req.params.invoice_id
+
+    btcPayClient.get_invoice(invoiceId)
+      .then(invoice => res.status(200).json({
+        id: invoice.id,
+        url: invoice.url,
+        status: invoice.status
+      }))
       .catch(err => this.handleError(res, err))
   }
 }
