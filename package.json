@@ -11,7 +11,7 @@
     "stop": "./scripts/stop.sh",
     "deploy:5apps": "git subtree push --prefix public/ 5apps master",
     "webhooks:server": "node scripts/webhook-demo.js",
-    "webhooks:ngrok": "ngrok http -subdomain=webhook-test -region=eu 8081"
+    "webhooks:ngrok": "ngrok http -region=eu 3200"
   },
   "keywords": [],
   "author": "",
