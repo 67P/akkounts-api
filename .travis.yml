@@ -1,5 +1,8 @@
+dist: xenial
 language: node_js
 node_js:
     - "lts/*"
 cache: npm
-script: "npm run lint && npm run test"
+script:
+  - npm run lint
+  - npm run test
