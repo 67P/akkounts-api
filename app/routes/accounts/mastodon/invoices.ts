@@ -17,7 +17,8 @@ class MastodonInvoicesRoute extends BaseRoute {
   public async create (req: Request, res: Response) {
     const { email, price, currency } = req.body
     const hookUrl = process.env.BTCPAY_WEBHOOK_HOST +
-                    '/accounts/mastodon/btcpay_hook'
+                    '/accounts/mastodon/btcpay_hook' +
+                    `?token=${process.env.BTCPAY_WEBHOOK_TOKEN}`
     // TODO validate input
 
     btcPayClient.create_invoice({

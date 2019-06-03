@@ -8,7 +8,7 @@
     "lint": "eslint app/ --ext ts",
     "start": "npm run dev",
     "test": "rm -rf dist/spec/ && tsc && mocha -s 300 --recursive dist/spec/",
-    "webhooks:ngrok": "ngrok http -region=eu 3200"
+    "ngrok": "ngrok http -region=eu 3200"
   },
   "keywords": [],
   "author": "",

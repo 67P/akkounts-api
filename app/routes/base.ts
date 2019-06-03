@@ -13,9 +13,9 @@ export default class {
   public createMastodonClient () {
     const host = process.env.MASTODON_HOST
     const authToken = process.env.MASTODON_AUTH_TOKEN
-    const client = axios.create()
-    axios.defaults.baseURL = `${host}/api/v1`
-    axios.defaults.headers.common.Authorization = `Bearer ${authToken}`
+    const client = axios.create({})
+    client.defaults.baseURL = `${host}/api/v1`
+    client.defaults.headers.common.Authorization = `Bearer ${authToken}`
     return client
   }
 

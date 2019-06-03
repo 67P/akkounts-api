@@ -14,8 +14,17 @@ class MastodonBtcPayHookRoute extends BaseRoute {
   }
 
   public async receive (req: Request, res: Response) {
-    console.log(inspect(req.body))
+    console.debug('body:', inspect(req.body))
+    console.debug('params:', inspect(req.query))
+
     if (req.body.status !== 'confirmed') return res.status(200)
+
+    if ((typeof req.query.token !== 'string') ||
+        (req.query.token !== process.env.BTCPAY_WEBHOOK_TOKEN)) {
+      return res.status(401).json({
+        error: { message: 'Unauthorized' }
+      })
+    }
 
     const invite = await this.createInvite()
     const recipient = req.body.buyerFields.buyerEmail
