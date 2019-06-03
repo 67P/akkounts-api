@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import { supertest, sandbox, factory, setup } from '../../../spec_helper'
-import { BaseRoute } from '../../../../app/routes/base'
+import BaseRoute from '../../../../app/routes/base'
 
 setup()
 
