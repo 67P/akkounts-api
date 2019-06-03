@@ -1,15 +1,11 @@
-import { Request, Response } from 'express';
+import { Request, Response } from 'express'
 import * as colors from 'colors/safe'
 import axios from 'axios'
-import { inspect } from 'util'
 
-export class BaseRoute {
+export default class {
 
-  constructor() {
-  }
-
-  public handleError(res: Response, err: { message: string, stack: any }) {
-    console.log(colors.red("Encountered an error, aborting request (500):"))
+  public handleError (res: Response, err: { message: string, stack: any }) {
+    console.log(colors.red('Encountered an error, aborting request (500):'))
     console.log(colors.gray(err.stack))
     res.sendStatus(500)
   }
@@ -19,7 +15,7 @@ export class BaseRoute {
     const authToken = process.env.MASTODON_AUTH_TOKEN
     const client = axios.create()
     axios.defaults.baseURL = `${host}/api/v1`
-    axios.defaults.headers.common['Authorization'] = `Bearer ${authToken}`
+    axios.defaults.headers.common.Authorization = `Bearer ${authToken}`
     return client
   }
 

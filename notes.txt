@@ -1,0 +1,7 @@
+https://lusaxweb.github.io/vuesax/components/slider.html
+https://bitpay.com/api#reference-Webhook%20Notification%20Codes
+https://bitpay.com/api#resource-Invoices
+https://github.com/btcpayserver/node-btcpay
+https://docs.btcpayserver.org/integrations/customintegration
+
+https://nodemailer.com/about/

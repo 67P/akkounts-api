@@ -17,7 +17,7 @@ interface Message {
 
 export const sendMail = (object: Message) => {
   const message = {
-    from: "accounts@kosmos.org",
+    from: 'accounts@kosmos.org',
     to: object.recipient,
     subject: object.subject,
     text: object.content

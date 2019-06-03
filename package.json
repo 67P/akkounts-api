@@ -5,12 +5,9 @@
   "main": "dist/app/index.js",
   "scripts": {
     "dev": "tsc --watch & nodemon dist/app",
+    "lint": "eslint app/ --ext ts",
+    "start": "npm run dev",
     "test": "rm -rf dist/spec/ && tsc && mocha -s 300 --recursive dist/spec/",
-    "lint": "eslint src --ext ts",
-    "start": "tsc && ./scripts/start.sh",
-    "stop": "./scripts/stop.sh",
-    "deploy:5apps": "git subtree push --prefix public/ 5apps master",
-    "webhooks:server": "node scripts/webhook-demo.js",
     "webhooks:ngrok": "ngrok http -region=eu 3200"
   },
   "keywords": [],

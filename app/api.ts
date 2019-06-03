@@ -1,10 +1,10 @@
 import * as express from 'express'
 import * as cors from 'cors'
-import IndexRoute from "./routes/index"
-import MastodonUsernameLookupRoute from "./routes/accounts/mastodon/username_lookup"
-import MastodonInvoicesRoute from "./routes/accounts/mastodon/invoices"
-import MastodonRegistrationsRoute from "./routes/accounts/mastodon/registrations"
-import MastodonBtcPayHookRoute from "./routes/accounts/mastodon/btcpay_hook"
+import IndexRoute from './routes/index'
+import MastodonUsernameLookupRoute from './routes/accounts/mastodon/username_lookup'
+import MastodonInvoicesRoute from './routes/accounts/mastodon/invoices'
+import MastodonRegistrationsRoute from './routes/accounts/mastodon/registrations'
+import MastodonBtcPayHookRoute from './routes/accounts/mastodon/btcpay_hook'
 
 require('dotenv').config()
 
@@ -17,7 +17,7 @@ class API {
     this.routes()
   }
 
-  public config() {
+  public config () {
     this.express.use(express.json())
     this.express.use(cors())
     this.express.set('etag', false)

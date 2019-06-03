@@ -1,4 +1,3 @@
-import * as http from 'http'
 import API from './api'
 
 const port = process.env.PORT || 3200

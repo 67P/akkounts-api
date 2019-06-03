@@ -1,17 +1,16 @@
 import { Request, Response, Router } from 'express'
-import { BaseRoute } from '../../base'
-import { inspect } from 'util'
+import BaseRoute from '../../base'
 
 class MastodonUsernameLookupRoute extends BaseRoute {
-  constructor() { super() }
+  constructor () { super() }
 
-  public static create(router: Router) {
+  public static create (router: Router) {
     router.get('/accounts/mastodon/username_lookup', (req, res) => {
       new MastodonUsernameLookupRoute().lookup(req, res)
     })
   }
 
-  public async lookup(req: Request, res: Response) {
+  public async lookup (req: Request, res: Response) {
     const username = req.query.q
     if (typeof username !== 'string') {
       return res.status(422).json({

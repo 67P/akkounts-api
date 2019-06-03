@@ -1,11 +1,11 @@
 import { Request, Response, Router } from 'express'
-import { BaseRoute } from '../../base'
+import BaseRoute from '../../base'
 import btcPayClient from '../../../lib/btcpay/client'
 
 class MastodonInvoicesRoute extends BaseRoute {
-  constructor() { super() }
+  constructor () { super() }
 
-  public static create(router: Router) {
+  public static create (router: Router) {
     router.post('/accounts/mastodon/invoices', (req, res) => {
       new MastodonInvoicesRoute().create(req, res)
     })
@@ -14,16 +14,16 @@ class MastodonInvoicesRoute extends BaseRoute {
     })
   }
 
-  public async create(req: Request, res: Response) {
+  public async create (req: Request, res: Response) {
     const { email, price, currency } = req.body
     const hookUrl = process.env.BTCPAY_WEBHOOK_HOST +
                     '/accounts/mastodon/btcpay_hook'
-    //TODO validate input
+    // TODO validate input
 
     btcPayClient.create_invoice({
       buyerEmail: email,
-      price: price,
-      currency: currency,
+      price,
+      currency,
       transactionSpeed: 'high',
       itemDesc: 'Mastodon account (1 year)',
       itemCode: 'mastodon-signup-donation',
@@ -33,7 +33,7 @@ class MastodonInvoicesRoute extends BaseRoute {
       .catch(err => this.handleError(res, err))
   }
 
-  public async show(req: Request, res: Response) {
+  public async show (req: Request, res: Response) {
     const invoiceId = req.params.invoice_id
 
     btcPayClient.get_invoice(invoiceId)

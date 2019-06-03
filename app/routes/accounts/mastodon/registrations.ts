@@ -1,17 +1,16 @@
 import { Request, Response, Router } from 'express'
-import { BaseRoute } from '../../base'
-import { inspect } from 'util'
+import BaseRoute from '../../base'
 
 class MastodonRegistrationsRoute extends BaseRoute {
-  constructor() { super() }
+  constructor () { super() }
 
-  public static create(router: Router) {
+  public static create (router: Router) {
     router.post('/accounts/mastodon/registration', (req, res) => {
       new MastodonRegistrationsRoute().signup(req, res)
     })
   }
 
-  public async signup(req: Request, res: Response) {
+  public async signup (req: Request, res: Response) {
     const { username, email, password } = req.body
     // if (typeof username !== 'string') {
     //   return res.status(422).json({
@@ -21,9 +20,9 @@ class MastodonRegistrationsRoute extends BaseRoute {
     const axios = this.createMastodonClient()
 
     axios.post('/accounts', {
-      username: username,
-      email: email,
-      password: password,
+      username,
+      email,
+      password,
       agreement: true,
       locale: 'en'
     })
