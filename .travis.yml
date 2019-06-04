@@ -5,4 +5,6 @@ node_js:
 cache: npm
 script:
   - npm run lint
-  - npm run test
+  - rm -rf dist/spec/
+  - tsc
+  - mocha -s 300 --recursive dist/spec/
