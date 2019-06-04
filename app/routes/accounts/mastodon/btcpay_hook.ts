@@ -19,8 +19,8 @@ class MastodonBtcPayHookRoute extends BaseRoute {
 
     if (req.body.status !== 'confirmed') return res.status(200)
 
-    if ((typeof req.query.token !== 'string') ||
-        (req.query.token !== process.env.BTCPAY_WEBHOOK_TOKEN)) {
+    if ((typeof req.query.token !== 'string')
+        || (req.query.token !== process.env.BTCPAY_WEBHOOK_TOKEN)) {
       return res.status(401).json({
         error: { message: 'Unauthorized' }
       })
