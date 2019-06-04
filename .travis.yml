@@ -5,4 +5,5 @@ node_js:
 cache: npm
 script:
   - npm run lint
+  - cp .env.example .env
   - npm run test

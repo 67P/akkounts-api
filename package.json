@@ -4,10 +4,15 @@
   "description": "",
   "main": "dist/app/index.js",
   "scripts": {
+    "clean:app": "rm -rf dist/app/",
+    "clean:specs": "rm -rf dist/spec/",
+    "compile:app": "tsc",
+    "compile:specs": "tsc",
     "dev": "tsc --watch & nodemon dist/app",
     "lint": "eslint app/ --ext ts",
     "start": "npm run dev",
-    "test": "rm -rf dist/spec/ && tsc && mocha -s 300 --recursive dist/spec/",
+    "pretest": "npm run clean:specs && npm run compile:specs",
+    "test": "mocha -s 300 --recursive dist/spec/",
     "ngrok": "ngrok http -region=eu 3200"
   },
   "keywords": [],
@@ -27,18 +32,17 @@
     "@types/mocha": "2.2.41",
     "@types/node": "10.14.8",
     "@types/nodemailer": "^4.6.6",
+    "@typescript-eslint/parser": "1.9.0",
     "chai": "^4.2.0",
     "colors": "^1.3.2",
-    "eslint": "4.0.0",
-    "eslint-config-airbnb-base": "11.2.0",
-    "eslint-plugin-import": "2.3.0",
-    "eslint-plugin-promise": "3.5.0",
+    "eslint": "5.16.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.17.3",
+    "eslint-plugin-promise": "4.1.1",
     "factory-girl": "^5.0.3",
     "mocha": "^6.1.4",
     "sinon": "^7.1.1",
     "supertest": "github:5apps/supertest#add-agent-default-support",
-    "tsc": "1.20150623.0",
-    "typescript": "2.3.3",
-    "typescript-eslint-parser": "3.0.0"
+    "typescript": "3.5.1"
   }
 }
