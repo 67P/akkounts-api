@@ -6,6 +6,10 @@ setup()
 
 describe('POST /accounts/mastodon/btcpay_hook', () => {
 
+  before(() => {
+    process.env.BTCPAY_WEBHOOK_TOKEN = 'supersecure'
+  })
+
   describe('auth token missing', () => {
     it('returns an error', async () => {
       await supertest
@@ -28,6 +32,36 @@ describe('POST /accounts/mastodon/btcpay_hook', () => {
         .expect(401)
         .then(res => {
           expect(res.body.error.message).to.eq('Unauthorized')
+        })
+    })
+  })
+
+  describe('successful request', () => {
+    before(() => {
+      sandbox
+        .stub(BaseRoute.prototype, 'createMastodonClient')
+        .returns({
+          post: url => {
+            return Promise.resolve({
+              data: { code: '123abc' }
+            })
+          }
+        })
+    })
+
+    it('returns an error', async () => {
+      await supertest
+        .post('/accounts/mastodon/btcpay_hook?token=supersecure')
+        .set('Content-Type', 'application/json')
+        .send({
+          buyerFields: {
+            buyerEmail: 'satoshi@kosmos.org'
+          },
+          status: 'confirmed'
+        })
+        .expect(200)
+        .then(res => {
+          expect(res.body.status).to.eq('OK')
         })
     })
   })

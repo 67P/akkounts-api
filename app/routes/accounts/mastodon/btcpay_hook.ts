@@ -36,13 +36,15 @@ class MastodonBtcPayHookRoute extends BaseRoute {
       content: message
     }).then(() => res.status(200))
       .catch(err => this.handleError(res, err))
+
+    return res.status(200).json({ status: 'OK' })
   }
 
   private createMessage (inviteCode: String) {
     const inviteUrl = `${process.env.MASTODON_HOST}/invite/${inviteCode}`
     const message = 'Here\'s your invite link for creating an account on kosmos.social:'
                   + `\n\n${inviteUrl}\n\n`
-                  + 'Thanks a lot for supporting community service providers!'
+                  + 'Welcome to the community!'
     return message
   }
 
