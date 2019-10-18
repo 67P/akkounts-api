@@ -49,7 +49,7 @@ describe('POST /accounts/mastodon/btcpay_hook', () => {
         })
     })
 
-    it('returns an error', async () => {
+    it('returns a 200', async () => {
       await supertest
         .post('/accounts/mastodon/btcpay_hook?token=supersecure')
         .set('Content-Type', 'application/json')
