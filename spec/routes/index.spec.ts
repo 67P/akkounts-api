@@ -9,7 +9,7 @@ describe('GET /', () => {
       .get('/')
       .expect('Content-Type', /json/)
       .expect(200, {
-        message: 'Hello blockchain!'
+        status: 'OK'
       })
   )
 })

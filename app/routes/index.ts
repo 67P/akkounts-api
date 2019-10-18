@@ -12,7 +12,7 @@ class IndexRoute extends BaseRoute {
   }
 
   public index (req: Request, res: Response) {
-    res.json({ message: 'Hello blockchain!' })
+    res.json({ status: 'OK' })
   }
 
 }
