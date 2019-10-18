@@ -1,22 +1,30 @@
 {
   "name": "akkounts-api",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/app/index.js",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Back-end for Kosmos Accounts app",
+  "main": "release/index.js",
   "scripts": {
     "clean:app": "rm -rf dist/app/",
     "clean:specs": "rm -rf dist/spec/",
+    "clean:release": "rm -rf release/*",
     "compile:app": "tsc",
-    "compile:specs": "tsc",
+    "compile:release": "npm run clean:app && npm run clean:release && tsc && cp -r dist/app/* release/",
+    "compile:specs": "npm run clean:specs && tsc",
     "dev": "tsc --watch & nodemon dist/app",
     "lint": "eslint app/ --ext ts",
     "start": "npm run dev",
-    "pretest": "npm run clean:specs && npm run compile:specs",
+    "pretest": " npm run compile:specs",
     "test": "mocha -s 300 --recursive dist/spec/",
+    "preversion": "npm test",
+    "version": "npm run compile:release && git add release/",
     "ngrok": "ngrok http -region=eu 3200"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "kosmos",
+    "btcpay"
+  ],
+  "author": "Kosmos Developers",
   "license": "AGPL",
   "dependencies": {
     "axios": "^0.19.0",
