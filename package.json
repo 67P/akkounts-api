@@ -1,6 +1,6 @@
 {
   "name": "akkounts-api",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Back-end for Kosmos Accounts app",
   "main": "release/index.js",
@@ -20,7 +20,10 @@
     "version": "npm run compile:release && git add release/",
     "ngrok": "ngrok http -region=eu 3200"
   },
-  "keywords": ["kosmos", "btcpay"],
+  "keywords": [
+    "kosmos",
+    "btcpay"
+  ],
   "author": "Kosmos Developers",
   "license": "AGPL",
   "dependencies": {
