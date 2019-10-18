@@ -1,6 +1,6 @@
 {
   "name": "akkounts-api",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "description": "Back-end for Kosmos Accounts app",
   "main": "release/index.js",
