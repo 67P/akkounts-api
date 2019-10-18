@@ -9,7 +9,7 @@ class IndexRoute extends base_1.default {
         });
     }
     index(req, res) {
-        res.json({ message: 'Hello blockchain!' });
+        res.json({ status: 'OK' });
     }
 }
 exports.default = IndexRoute;
