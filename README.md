@@ -14,6 +14,13 @@ Compile app, run API server, watch code and reload automatically:
 
     npm run lint
 
+### Releases
+
+The versioning command will compile a release build to the `release/` directory
+and commit the files in the version commit:
+
+    npm run version [patch|minor|major]
+
 ### Resources
 
 #### TypeScript, Express.js & Co.
