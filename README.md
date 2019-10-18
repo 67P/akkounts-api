@@ -19,7 +19,7 @@ Compile app, run API server, watch code and reload automatically:
 The versioning command will compile a release build to the `release/` directory
 and commit the files in the version commit:
 
-    npm run version [patch|minor|major]
+    npm version [patch|minor|major]
 
 ### Resources
 
